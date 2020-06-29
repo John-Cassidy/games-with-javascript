@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Games with JavaScript</title>
+  </head>
+  <body>
+    <h4>
+      Let's Play Connect 4
+    </h4>
+    <div id="button-grid">
+      <span id="start-button">
+        <input type="button" value="Start" onclick="startGame();" />
+      </span>
+      <span id="begin-button" style="visibility: hidden;">
+        <input type="button" value="Begin Play" onclick="beginPlay();" />
+      </span>
+      <span id="reset-button" style="visibility: hidden;">
+        <input type="button" value="Reset Game" onclick="resetGame();" />
+      </span>
+    </div>
+    <div>
+      <canvas
+        id="myCanvas"
+        width="800"
+        height="600"
+        style="border: 1px solid #000000;"
+      ></canvas>
+    </div>
+    <script type="text/javascript" src="drag-circle.js"></script>
+  </body>
+</html>
