@@ -6,7 +6,7 @@
     <h4>
       Let's Play Connect 4
     </h4>
-    <div id="button-grid">
+    <div id="button-grid" style="width: 30%; float: left;">
       <span id="start-button">
         <input type="button" value="Start" onclick="startGame();" />
       </span>
@@ -16,6 +16,85 @@
       <span id="reset-button" style="visibility: hidden;">
         <input type="button" value="Reset Game" onclick="resetGame();" />
       </span>
+      <div id="begin-player-1" style="visibility: hidden;">
+        Player #1 pick a color.
+      </div>
+      <div id="begin-player-2" style="visibility: hidden;">
+        Playter #2 pick a color.
+      </div>
+      <div id="active-player-1" style="visibility: hidden;">
+        Player #1 your turn.
+      </div>
+      <div id="active-player-2" style="visibility: hidden;">
+        Playter #2 your turn.
+      </div>
+    </div>
+    <div
+      id="begin-player"
+      style="width: 70%; float: right; visibility: hidden;"
+    >
+      <div id="begin-color">
+        <svg height="100" width="100">
+          <circle
+            id="color-red"
+            cx="50"
+            cy="50"
+            r="40"
+            stroke="black"
+            stroke-width="3"
+            fill="red"
+            onclick="pickcolor('red');"
+          />
+        </svg>
+        <svg height="100" width="100">
+          <circle
+            id="color-green"
+            cx="50"
+            cy="50"
+            r="40"
+            stroke="black"
+            stroke-width="3"
+            fill="green"
+            onclick="pickcolor('green');"
+          />
+        </svg>
+        <svg height="100" width="100">
+          <circle
+            id="color-yellow"
+            cx="50"
+            cy="50"
+            r="40"
+            stroke="black"
+            stroke-width="3"
+            fill="yellow"
+            onclick="pickcolor('yellow');"
+          />
+        </svg>
+        <svg height="100" width="100">
+          <circle
+            id="color-blue"
+            cx="50"
+            cy="50"
+            r="40"
+            stroke="black"
+            stroke-width="3"
+            fill="blue"
+            onclick="pickcolor('blue');"
+          />
+        </svg>
+        <svg height="100" width="100">
+          <circle
+            id="color-black"
+            cx="50"
+            cy="50"
+            r="40"
+            stroke="black"
+            stroke-width="3"
+            fill="black"
+            onclick="pickcolor('black');"
+          />
+        </svg>
+      </div>
     </div>
     <div>
       <canvas
