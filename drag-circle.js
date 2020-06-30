@@ -52,6 +52,7 @@ function startGame() {
   let activeplayer1 = document.getElementById('active-player-1');
   activeplayer1.style.visibility = 'visible';
   showColors();
+  createGrid();
 }
 
 function beginPlay() {
@@ -163,8 +164,8 @@ function clearCanvas() {
 function draw() {
   clearCanvas();
   if (isGameBeginPlay && c1 === null) {
-    c1 = new Circle(50, 50, 50, playerOneColor, 'black');
-    c2 = new Circle(200, 50, 50, playerTwoColor, 'black');
+    c1 = new Circle(50, 50, 20, playerOneColor, 'black');
+    c2 = new Circle(200, 50, 20, playerTwoColor, 'black');
     //initialise our circles
     circles = [c1, c2];
   }
@@ -203,6 +204,58 @@ function Circle(x, y, r, fill, stroke) {
     ctx.fill();
     ctx.strokeStyle = this.stroke;
     ctx.stroke();
+  };
+}
+
+function createGrid() {
+  var canvasOffset = 200;
+  var x = 20;
+  var y = 20 + canvasOffset;
+  var width = 50;
+  var height = 50;
+
+  var xOffset = 55;
+  var yOffset = 55;
+  var rowCount = 0;
+  var columnCount = 0;
+
+  var rowLength = 6;
+  var columnLength = 7;
+  // var rowArray = new Array(rowLength);
+  // var columnArray = new Array(columnLength);
+  // var gridArray = [rowArray, columnArray];
+  var gridArray = [...Array(rowLength)].map((x) =>
+    Array(columnLength).fill(null)
+  );
+
+  gridArray.forEach((row) => {
+    if (columnCount === columnLength) {
+      columnCount = 0;
+      x = 20;
+      rowCount++;
+      y = y + yOffset;
+    }
+    row.forEach((column) => {
+      let sq = new Square(x, y, width, height);
+      sq.draw();
+      gridArray[rowCount][columnCount] = sq;
+
+      columnCount++;
+      x = x + xOffset;
+    });
+  });
+}
+
+function Square(x, y, width, height) {
+  this.x = x;
+  this.y = y;
+  this.width = width;
+  this.height = height;
+
+  this.draw = function () {
+    // ctx.fillRect(x, y, width, height);
+    ctx.fillStyle = 'black';
+    ctx.strokeRect(x, y, width, height);
   };
 }
 
